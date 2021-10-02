@@ -1,0 +1,11 @@
+{
+  "rdvApp": {
+    "TipoDeVacuna": {
+      "null": "",
+      "SPUTNIK": "Sputnik",
+      "ASTRAZENECA": "AstraZeneca",
+      "PFIZER": "Pfizer",
+      "JHONSONANDJHONSON": "Jhonson &amp; Jhonson"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "rdvApp": {
+    "registroDeVacunacion": {
+      "home": {
+        "title": "Registro De Vacunacions",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Registro De Vacunacion",
+        "createOrEditLabel": "Crear o editar Registro De Vacunacion",
+        "notFound": "Ningún Registro De Vacunacions encontrado"
+      },
+      "created": "Un nuevo Registro De Vacunacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Registro De Vacunacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Registro De Vacunacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Registro De Vacunacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Registro De Vacunacion"
+      },
+      "id": "ID",
+      "tipoDeVacuna": "Tipo De Vacuna",
+      "fechaDeVacunacion": "Fecha De Vacunacion",
+      "numeroDeDosis": "Numero De Dosis",
+      "user": "User"
+    }
+  }
+}

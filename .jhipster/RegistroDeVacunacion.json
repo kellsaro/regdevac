@@ -1,0 +1,39 @@
+{
+  "name": "RegistroDeVacunacion",
+  "fields": [
+    {
+      "fieldName": "tipoDeVacuna",
+      "fieldType": "TipoDeVacuna",
+      "fieldValues": "SPUTNIK (Sputnik),ASTRAZENECA (AstraZeneca),PFIZER (Pfizer),JHONSONANDJHONSON (Jhonson & Jhonson)",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fechaDeVacunacion",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "numeroDeDosis",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "registrosDeVacunacion",
+      "relationshipName": "user"
+    }
+  ],
+  "entityTableName": "registro_de_vacunacion",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["rdv"],
+  "changelogDate": "20211002170237"
+}
