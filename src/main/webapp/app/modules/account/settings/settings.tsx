@@ -35,6 +35,28 @@ export const SettingsPage = () => {
     );
   };
 
+  const isCedulaEcuatoriana = cedula => {
+    if (cedula === null) return false;
+    cedula = cedula.toString().trim();
+    if (cedula.length !== 10) return false;
+
+    const digitos = cedula.split('').flatMap(d => parseInt(d, 10));
+    let suma = 0;
+
+    for (let i = 0; i < 9; i++) {
+      if (i % 2 === 0) {
+        let mult = digitos[i] * 2;
+        if (mult > 9) mult = mult - 9;
+        suma += mult;
+      } else {
+        suma += digitos[i];
+      }
+    }
+    const modulo = suma % 10;
+    const verificador = modulo === 0 ? 0 : 10 - modulo;
+    return verificador === digitos[9];
+  };
+
   return (
     <div>
       <Row className="justify-content-center">
@@ -81,6 +103,53 @@ export const SettingsPage = () => {
                 validate: v => isEmail(v) || translate('global.messages.validate.email.invalid'),
               }}
               data-cy="email"
+            />
+            <ValidatedField
+              name="cedula"
+              label={translate('settings.form.cedula')}
+              id="cedula"
+              placeholder={translate('settings.form.cedula.placeholder')}
+              validate={{
+                required: { value: true, message: translate('global.messages.validate.cedula.required') },
+                minLength: { value: 5, message: translate('global.messages.validate.cedula.minlength') },
+                maxLength: { value: 254, message: translate('global.messages.validate.cedula.maxlength') },
+                validate: v => isCedulaEcuatoriana(v) || translate('global.messages.validate.cedula.invalid'),
+              }}
+              data-cy="cedula"
+            />
+            <ValidatedField
+              name="fechaDeNacimiento"
+              label={translate('settings.form.fechaDeNacimiento')}
+              id="cedula"
+              placeholder={translate('settings.form.fechaDeNacimiento.placeholder')}
+              validate={{
+                required: { value: true, message: translate('global.messages.validate.fechaDeNacimiento.required') },
+              }}
+              data-cy="fechaDeNacimiento"
+            />
+            <ValidatedField
+              name="direccion"
+              label={translate('settings.form.direccion')}
+              id="direccion"
+              placeholder={translate('settings.form.direccion.placeholder')}
+              validate={{
+                required: { value: true, message: translate('global.messages.validate.direccion.required') },
+                minLength: { value: 5, message: translate('global.messages.validate.direccion.minlength') },
+                maxLength: { value: 100, message: translate('global.messages.validate.direccion.maxlength') },
+              }}
+              data-cy="direccion"
+            />
+            <ValidatedField
+              name="celular"
+              label={translate('settings.form.celular')}
+              id="celular"
+              placeholder={translate('settings.form.celular.placeholder')}
+              validate={{
+                required: { value: true, message: translate('global.messages.validate.celular.required') },
+                minLength: { value: 10, message: translate('global.messages.validate.celular.minlength') },
+                maxLength: { value: 10, message: translate('global.messages.validate.celular.maxlength') },
+              }}
+              data-cy="celular"
             />
             <ValidatedField type="select" id="langKey" name="langKey" label={translate('settings.form.language')} data-cy="langKey">
               {locales.map(locale => (

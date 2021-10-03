@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rdv.config.Constants;
 import java.io.Serializable;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -65,9 +66,19 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "lang_key", length = 10)
     private String langKey;
 
-    @Size(max = 256)
-    @Column(name = "image_url", length = 256)
-    private String imageUrl;
+    @Size(max = 10)
+    @Column(name = "cedula", length = 10, unique = true)
+    private String cedula;
+
+    @Column(name = "fecha_de_nacimiento", columnDefinition = "DATE")
+    private LocalDate fechaDeNacimiento;
+
+    @Column(name = "direccion")
+    private String direccion;
+
+    @Size(max = 10)
+    @Column(name = "celular", length = 10)
+    private String celular;
 
     @Size(max = 20)
     @Column(name = "activation_key", length = 20)
@@ -92,6 +103,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @BatchSize(size = 20)
     private Set<Authority> authorities = new HashSet<>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user")
+    @BatchSize(size = 20)
+    private Set<RegistroDeVacunacion> registrosDeVacunacion = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -142,12 +158,36 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public LocalDate getFechaDeNacimiento() {
+        return fechaDeNacimiento;
+    }
+
+    public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
+        this.fechaDeNacimiento = fechaDeNacimiento;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     public boolean isActivated() {
@@ -198,6 +238,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.authorities = authorities;
     }
 
+    public Set<RegistroDeVacunacion> getRegistrosDeVacunacion() {
+        return registrosDeVacunacion;
+    }
+
+    public void setRegistrosDeVacunacion(Set<RegistroDeVacunacion> authorities) {
+        this.registrosDeVacunacion = registrosDeVacunacion;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -223,7 +271,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
-            ", imageUrl='" + imageUrl + '\'' +
+            ", cedula='" + cedula + '\'' +
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +

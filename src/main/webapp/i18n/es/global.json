@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "Rdv",
+    "title": "Registro de Vacunación",
     "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=es\">actualice su navegador</a> para mejorar su experiencia.",
     "menu": {
       "home": "Inicio",
@@ -43,7 +43,15 @@
       "confirmpassword.label": "Confirmación de la nueva contraseña",
       "confirmpassword.placeholder": "Confirmación de la nueva contraseña",
       "email.label": "Correo electrónico",
-      "email.placeholder": "Su correo electrónico"
+      "email.placeholder": "Su correo electrónico",
+      "cedula.label": "Número de édula",
+      "cedula.placeholder": "Su número de cédula",
+      "fechaDeNacimiento.label": "Fecha de nacimiento",
+      "fechaDeNacimiento.placeholder": "Su fecha de nacimiento",
+      "direccion.label": "Dirección",
+      "direccion.placeholder": "Su dirección domiciliaria",
+      "celular.label": "Celular",
+      "celular.placeholder": "Su número de celular"
     },
     "messages": {
       "info": {
@@ -77,6 +85,25 @@
           "invalid": "Su correo electrónico no es válido.",
           "minlength": "Se requiere que su correo electrónico tenga por lo menos 5 caracteres",
           "maxlength": "Su correo electrónico no puede tener más de 50 caracteres"
+        },
+        "cedula": {
+          "required": "Se requiere una cédula ecuatoriana.",
+          "invalid": "Su cédula ecuatoriana no es válida.",
+          "minlength": "Se requiere que su cédula ecuatoriana tenga por lo menos 10 caracteres",
+          "maxlength": "Su cédula ecuatoriana no puede tener más de 10 caracteres"
+        },
+        "fechaDeNacimiento": {
+          "required": "Se requiere su fecha de nacimiento."
+        },
+        "direccion": {
+          "required": "Se requiere la dirección de su domicilio.",
+          "minlength": "Se requiere que la dirección tenga por lo menos 5 caracteres",
+          "maxlength": "La dirección no puede tener más de 100 caracteres"
+        },
+        "celular": {
+          "required": "Se requiere su número de celular.",
+          "minlength": "Se requiere el número de celular tenga 10 caracteres",
+          "maxlength": "Se requiere el número de celular tenga 10 caracteres"
         }
       }
     },
@@ -137,5 +164,7 @@
       "not.image": "Se esperaba que el fichero fuera una imagen pero se encontro \"{{ fileType }}\""
     }
   },
-  "footer": "Pie de página"
+  "footer": "",
+  "ROLE_USER": "EMPLEADO",
+  "ROLE_ADMIN": "ADMINISTRADOR"
 }

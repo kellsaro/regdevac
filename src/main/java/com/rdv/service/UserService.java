@@ -10,6 +10,7 @@ import com.rdv.security.SecurityUtils;
 import com.rdv.service.dto.AdminUserDTO;
 import com.rdv.service.dto.UserDTO;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -120,7 +121,7 @@ public class UserService {
         if (userDTO.getEmail() != null) {
             newUser.setEmail(userDTO.getEmail().toLowerCase());
         }
-        newUser.setImageUrl(userDTO.getImageUrl());
+        newUser.setCedula(userDTO.getCedula());
         newUser.setLangKey(userDTO.getLangKey());
         // new user is not active
         newUser.setActivated(false);
@@ -153,7 +154,7 @@ public class UserService {
         if (userDTO.getEmail() != null) {
             user.setEmail(userDTO.getEmail().toLowerCase());
         }
-        user.setImageUrl(userDTO.getImageUrl());
+        user.setCedula(userDTO.getCedula());
         if (userDTO.getLangKey() == null) {
             user.setLangKey(Constants.DEFAULT_LANGUAGE); // default language
         } else {
@@ -199,7 +200,7 @@ public class UserService {
                 if (userDTO.getEmail() != null) {
                     user.setEmail(userDTO.getEmail().toLowerCase());
                 }
-                user.setImageUrl(userDTO.getImageUrl());
+                user.setCedula(userDTO.getCedula());
                 user.setActivated(userDTO.isActivated());
                 user.setLangKey(userDTO.getLangKey());
                 Set<Authority> managedAuthorities = user.getAuthorities();
@@ -235,9 +236,21 @@ public class UserService {
      * @param lastName  last name of user.
      * @param email     email id of user.
      * @param langKey   language key.
-     * @param imageUrl  image URL of user.
+     * @param cedula  dni of user.
+     * @param fechaDeNacimiento  Birth day of user.
+     * @param direccion  address of user.
+     * @param celular  cell number of user.
      */
-    public void updateUser(String firstName, String lastName, String email, String langKey, String imageUrl) {
+    public void updateUser(
+        String firstName,
+        String lastName,
+        String email,
+        String langKey,
+        String cedula,
+        LocalDate fechaDeNacimiento,
+        String direccion,
+        String celular
+    ) {
         SecurityUtils
             .getCurrentUserLogin()
             .flatMap(userRepository::findOneByLogin)
@@ -248,7 +261,10 @@ public class UserService {
                     user.setEmail(email.toLowerCase());
                 }
                 user.setLangKey(langKey);
-                user.setImageUrl(imageUrl);
+                user.setCedula(cedula);
+                user.setFechaDeNacimiento(fechaDeNacimiento);
+                user.setDireccion(direccion);
+                user.setCelular(celular);
                 this.clearUserCaches(user);
                 log.debug("Changed Information for User: {}", user);
             });

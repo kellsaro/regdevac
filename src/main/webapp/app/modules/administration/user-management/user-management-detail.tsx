@@ -52,30 +52,12 @@ export const UserManagementDetail = (props: RouteComponentProps<{ login: string 
             <Translate contentKey="userManagement.email">Email</Translate>
           </dt>
           <dd>{user.email}</dd>
-          <dt>
-            <Translate contentKey="userManagement.langKey">Lang Key</Translate>
-          </dt>
-          <dd>{user.langKey ? languages[user.langKey].name : undefined}</dd>
-          <dt>
-            <Translate contentKey="userManagement.createdBy">Created By</Translate>
-          </dt>
-          <dd>{user.createdBy}</dd>
+
           <dt>
             <Translate contentKey="userManagement.createdDate">Created Date</Translate>
           </dt>
           <dd>{user.createdDate ? <TextFormat value={user.createdDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}</dd>
-          <dt>
-            <Translate contentKey="userManagement.lastModifiedBy">Last Modified By</Translate>
-          </dt>
-          <dd>{user.lastModifiedBy}</dd>
-          <dt>
-            <Translate contentKey="userManagement.lastModifiedDate">Last Modified Date</Translate>
-          </dt>
-          <dd>
-            {user.lastModifiedDate ? (
-              <TextFormat value={user.lastModifiedDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid />
-            ) : null}
-          </dd>
+
           <dt>
             <Translate contentKey="userManagement.profiles">Profiles</Translate>
           </dt>
@@ -84,7 +66,9 @@ export const UserManagementDetail = (props: RouteComponentProps<{ login: string 
               {user.authorities
                 ? user.authorities.map((authority, i) => (
                     <li key={`user-auth-${i}`}>
-                      <Badge color="info">{authority}</Badge>
+                      <Badge color="info">
+                        <Translate contentKey={authority}>{authority}</Translate>
+                      </Badge>
                     </li>
                   ))
                 : null}

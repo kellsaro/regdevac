@@ -103,6 +103,9 @@ export const RegistroDeVacunacion = (props: RouteComponentProps<{ url: string }>
                 <th className="hand" onClick={sort('id')}>
                   <Translate contentKey="rdvApp.registroDeVacunacion.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
+                <th className="hand" onClick={sort('user')}>
+                  <Translate contentKey="rdvApp.registroDeVacunacion.user">User</Translate> <FontAwesomeIcon icon="sort" />
+                </th>
                 <th className="hand" onClick={sort('tipoDeVacuna')}>
                   <Translate contentKey="rdvApp.registroDeVacunacion.tipoDeVacuna">Tipo De Vacuna</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
@@ -115,9 +118,7 @@ export const RegistroDeVacunacion = (props: RouteComponentProps<{ url: string }>
                   <Translate contentKey="rdvApp.registroDeVacunacion.numeroDeDosis">Numero De Dosis</Translate>{' '}
                   <FontAwesomeIcon icon="sort" />
                 </th>
-                <th>
-                  <Translate contentKey="rdvApp.registroDeVacunacion.user">User</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
+
                 <th />
               </tr>
             </thead>
@@ -129,6 +130,7 @@ export const RegistroDeVacunacion = (props: RouteComponentProps<{ url: string }>
                       {registroDeVacunacion.id}
                     </Button>
                   </td>
+                  <td>{registroDeVacunacion.user ? registroDeVacunacion.user.firstName + ' ' + registroDeVacunacion.user.lastName : ''}</td>
                   <td>
                     <Translate contentKey={`rdvApp.TipoDeVacuna.${registroDeVacunacion.tipoDeVacuna}`} />
                   </td>
@@ -138,7 +140,6 @@ export const RegistroDeVacunacion = (props: RouteComponentProps<{ url: string }>
                     ) : null}
                   </td>
                   <td>{registroDeVacunacion.numeroDeDosis}</td>
-                  <td>{registroDeVacunacion.user ? registroDeVacunacion.user.id : ''}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button

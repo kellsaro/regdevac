@@ -30,6 +30,14 @@ export const RegistroDeVacunacionDetail = (props: RouteComponentProps<{ id: stri
           </dt>
           <dd>{registroDeVacunacionEntity.id}</dd>
           <dt>
+            <Translate contentKey="rdvApp.registroDeVacunacion.empleado">Empleado</Translate>
+          </dt>
+          <dd>
+            {registroDeVacunacionEntity.user
+              ? registroDeVacunacionEntity.user.firstName + '' + registroDeVacunacionEntity.user.lastName
+              : ''}
+          </dd>
+          <dt>
             <span id="tipoDeVacuna">
               <Translate contentKey="rdvApp.registroDeVacunacion.tipoDeVacuna">Tipo De Vacuna</Translate>
             </span>
@@ -51,10 +59,6 @@ export const RegistroDeVacunacionDetail = (props: RouteComponentProps<{ id: stri
             </span>
           </dt>
           <dd>{registroDeVacunacionEntity.numeroDeDosis}</dd>
-          <dt>
-            <Translate contentKey="rdvApp.registroDeVacunacion.user">User</Translate>
-          </dt>
-          <dd>{registroDeVacunacionEntity.user ? registroDeVacunacionEntity.user.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/registro-de-vacunacion" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

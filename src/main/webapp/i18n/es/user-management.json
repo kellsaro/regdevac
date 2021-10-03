@@ -16,8 +16,8 @@
       "title": "Usuario"
     },
     "login": "Login",
-    "firstName": "Nombre",
-    "lastName": "Apellidos",
+    "firstName": "Nombre(s)",
+    "lastName": "Apellido(s)",
     "email": "Email",
     "activated": "Activado",
     "deactivated": "Desactivado",
@@ -26,6 +26,7 @@
     "createdBy": "Creado por",
     "createdDate": "Fecha de creación",
     "lastModifiedBy": "Modificado por",
-    "lastModifiedDate": "Fecha de modificación"
+    "lastModifiedDate": "Fecha de modificación",
+    "fullName": "Nombres y apellidos"
   }
 }

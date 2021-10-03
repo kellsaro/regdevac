@@ -40,7 +40,7 @@ class UserServiceIT {
 
     private static final String DEFAULT_LASTNAME = "doe";
 
-    private static final String DEFAULT_IMAGEURL = "http://placehold.it/50x50";
+    private static final String DEFAULT_CEDULA = "1717171717";
 
     private static final String DEFAULT_LANGKEY = "dummy";
 
@@ -67,7 +67,7 @@ class UserServiceIT {
         user.setEmail(DEFAULT_EMAIL);
         user.setFirstName(DEFAULT_FIRSTNAME);
         user.setLastName(DEFAULT_LASTNAME);
-        user.setImageUrl(DEFAULT_IMAGEURL);
+        user.setCedula(DEFAULT_CEDULA);
         user.setLangKey(DEFAULT_LANGKEY);
 
         when(dateTimeProvider.getNow()).thenReturn(Optional.of(LocalDateTime.now()));

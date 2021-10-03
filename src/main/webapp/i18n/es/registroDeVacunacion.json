@@ -2,26 +2,27 @@
   "rdvApp": {
     "registroDeVacunacion": {
       "home": {
-        "title": "Registro De Vacunacions",
+        "title": "Registro De Vacunación",
         "refreshListLabel": "Refrescar lista",
-        "createLabel": "Crear nuevo Registro De Vacunacion",
-        "createOrEditLabel": "Crear o editar Registro De Vacunacion",
+        "createLabel": "Crear nuevo Registro De Vacunación",
+        "createOrEditLabel": "Crear o editar Registro De Vacunación",
         "notFound": "Ningún Registro De Vacunacions encontrado"
       },
-      "created": "Un nuevo Registro De Vacunacion ha sido creado con el identificador {{ param }}",
-      "updated": "Un Registro De Vacunacion ha sido actualizado con el identificador {{ param }}",
-      "deleted": "Un Registro De Vacunacion ha sido eliminado con el identificador {{ param }}",
+      "created": "Un nuevo Registro De Vacunación ha sido creado con el identificador {{ param }}",
+      "updated": "Un Registro De Vacunación ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Registro De Vacunación ha sido eliminado con el identificador {{ param }}",
       "delete": {
-        "question": "¿Seguro que quiere eliminar Registro De Vacunacion {{ id }}?"
+        "question": "¿Seguro que quiere eliminar Registro De Vacunación {{ id }}?"
       },
       "detail": {
-        "title": "Registro De Vacunacion"
+        "title": "Registro De Vacunación"
       },
       "id": "ID",
       "tipoDeVacuna": "Tipo De Vacuna",
-      "fechaDeVacunacion": "Fecha De Vacunacion",
-      "numeroDeDosis": "Numero De Dosis",
-      "user": "User"
+      "fechaDeVacunacion": "Fecha De Vacunación",
+      "numeroDeDosis": "Número De Dosis",
+      "user": "Usuario",
+      "empleado": "Empleado"
     }
   }
 }

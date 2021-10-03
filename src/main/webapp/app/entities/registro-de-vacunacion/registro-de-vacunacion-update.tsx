@@ -92,6 +92,22 @@ export const RegistroDeVacunacionUpdate = (props: RouteComponentProps<{ id: stri
                 />
               ) : null}
               <ValidatedField
+                id="registro-de-vacunacion-user"
+                name="userId"
+                data-cy="user"
+                label={translate('rdvApp.registroDeVacunacion.empleado')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {users
+                  ? users.map(user => (
+                      <option value={user.id} key={user.id}>
+                        {user.firstName + ' ' + user.lastName}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
                 label={translate('rdvApp.registroDeVacunacion.tipoDeVacuna')}
                 id="registro-de-vacunacion-tipoDeVacuna"
                 name="tipoDeVacuna"
@@ -124,22 +140,6 @@ export const RegistroDeVacunacionUpdate = (props: RouteComponentProps<{ id: stri
                   validate: v => isNumber(v) || translate('entity.validation.number'),
                 }}
               />
-              <ValidatedField
-                id="registro-de-vacunacion-user"
-                name="userId"
-                data-cy="user"
-                label={translate('rdvApp.registroDeVacunacion.user')}
-                type="select"
-              >
-                <option value="" key="0" />
-                {users
-                  ? users.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
-                      </option>
-                    ))
-                  : null}
-              </ValidatedField>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/registro-de-vacunacion" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

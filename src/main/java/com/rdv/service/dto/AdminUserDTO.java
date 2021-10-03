@@ -4,8 +4,10 @@ import com.rdv.config.Constants;
 import com.rdv.domain.Authority;
 import com.rdv.domain.User;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Set;
 import java.util.stream.Collectors;
+import javax.persistence.Column;
 import javax.validation.constraints.*;
 
 /**
@@ -30,8 +32,15 @@ public class AdminUserDTO {
     @Size(min = 5, max = 254)
     private String email;
 
-    @Size(max = 256)
-    private String imageUrl;
+    @Size(max = 10)
+    private String cedula;
+
+    private LocalDate fechaDeNacimiento;
+
+    private String direccion;
+
+    @Size(max = 10)
+    private String celular;
 
     private boolean activated = false;
 
@@ -59,7 +68,10 @@ public class AdminUserDTO {
         this.lastName = user.getLastName();
         this.email = user.getEmail();
         this.activated = user.isActivated();
-        this.imageUrl = user.getImageUrl();
+        this.cedula = user.getCedula();
+        this.fechaDeNacimiento = user.getFechaDeNacimiento();
+        this.direccion = user.getDireccion();
+        this.celular = user.getCelular();
         this.langKey = user.getLangKey();
         this.createdBy = user.getCreatedBy();
         this.createdDate = user.getCreatedDate();
@@ -108,12 +120,36 @@ public class AdminUserDTO {
         this.email = email;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public LocalDate getFechaDeNacimiento() {
+        return fechaDeNacimiento;
+    }
+
+    public void setFechaDeNacimiento(LocalDate fechaDeNacimiento) {
+        this.fechaDeNacimiento = fechaDeNacimiento;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     public boolean isActivated() {
@@ -180,7 +216,7 @@ public class AdminUserDTO {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
-            ", imageUrl='" + imageUrl + '\'' +
+            ", cedula='" + cedula + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
             ", createdBy=" + createdBy +

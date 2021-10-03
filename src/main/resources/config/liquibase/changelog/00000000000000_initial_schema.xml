@@ -28,7 +28,12 @@
             <column name="email" type="varchar(191)">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_user_email"/>
             </column>
-            <column name="image_url" type="varchar(256)"/>
+            <column name="cedula" type="varchar(10)">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_user_cedula"/>
+            </column>
+            <column name="fecha_de_nacimiento" type="timestamp"/>
+            <column name="direccion" type="varchar(100)"/>
+            <column name="celular" type="varchar(10)"/>
             <column name="activated" type="boolean" valueBoolean="false">
                 <constraints nullable="false" />
             </column>

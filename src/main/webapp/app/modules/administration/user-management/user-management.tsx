@@ -110,26 +110,13 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
               <Translate contentKey="userManagement.email">Email</Translate>
               <FontAwesomeIcon icon="sort" />
             </th>
-            <th />
-            <th className="hand" onClick={sort('langKey')}>
-              <Translate contentKey="userManagement.langKey">Lang Key</Translate>
-              <FontAwesomeIcon icon="sort" />
+            <th className="hand">
+              <Translate contentKey="userManagement.fullName">Nombres y apellidos</Translate>
             </th>
             <th>
               <Translate contentKey="userManagement.profiles">Profiles</Translate>
             </th>
-            <th className="hand" onClick={sort('createdDate')}>
-              <Translate contentKey="userManagement.createdDate">Created Date</Translate>
-              <FontAwesomeIcon icon="sort" />
-            </th>
-            <th className="hand" onClick={sort('lastModifiedBy')}>
-              <Translate contentKey="userManagement.lastModifiedBy">Last Modified By</Translate>
-              <FontAwesomeIcon icon="sort" />
-            </th>
-            <th id="modified-date-sort" className="hand" onClick={sort('lastModifiedDate')}>
-              <Translate contentKey="userManagement.lastModifiedDate">Last Modified Date</Translate>
-              <FontAwesomeIcon icon="sort" />
-            </th>
+            <th />
             <th />
           </tr>
         </thead>
@@ -143,6 +130,18 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
               </td>
               <td>{user.login}</td>
               <td>{user.email}</td>
+              <td>{user.firstName + ' ' + user.lastName}</td>
+              <td>
+                {user.authorities
+                  ? user.authorities.map((authority, j) => (
+                      <div key={`user-auth-${i}-${j}`}>
+                        <Badge color="info">
+                          <Translate contentKey={authority}>{authority}</Translate>
+                        </Badge>
+                      </div>
+                    ))
+                  : null}
+              </td>
               <td>
                 {user.activated ? (
                   <Button color="success" onClick={toggleActive(user)}>
@@ -154,25 +153,7 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
                   </Button>
                 )}
               </td>
-              <td>{user.langKey}</td>
-              <td>
-                {user.authorities
-                  ? user.authorities.map((authority, j) => (
-                      <div key={`user-auth-${i}-${j}`}>
-                        <Badge color="info">{authority}</Badge>
-                      </div>
-                    ))
-                  : null}
-              </td>
-              <td>
-                {user.createdDate ? <TextFormat value={user.createdDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}
-              </td>
-              <td>{user.lastModifiedBy}</td>
-              <td>
-                {user.lastModifiedDate ? (
-                  <TextFormat value={user.lastModifiedDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid />
-                ) : null}
-              </td>
+
               <td className="text-right">
                 <div className="btn-group flex-btn-group-container">
                   <Button tag={Link} to={`${match.url}/${user.login}`} color="info" size="sm">

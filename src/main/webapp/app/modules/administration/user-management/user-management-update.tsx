@@ -113,7 +113,6 @@ export const UserManagementUpdate = (props: RouteComponentProps<{ login: string 
                   },
                 }}
               />
-              <FormText>This field cannot be longer than 50 characters.</FormText>
               <ValidatedField
                 name="email"
                 label={translate('global.form.email.label')}
@@ -135,6 +134,13 @@ export const UserManagementUpdate = (props: RouteComponentProps<{ login: string 
                   validate: v => isEmail(v) || translate('global.messages.validate.email.invalid'),
                 }}
               />
+              <ValidatedField type="select" name="authorities" multiple label={translate('userManagement.profiles')}>
+                {authorities.map(role => (
+                  <option value={role} key={role}>
+                    {translate(role)}
+                  </option>
+                ))}
+              </ValidatedField>
               <ValidatedField
                 type="checkbox"
                 name="activated"
@@ -143,20 +149,6 @@ export const UserManagementUpdate = (props: RouteComponentProps<{ login: string 
                 disabled={!user.id}
                 label={translate('userManagement.activated')}
               />
-              <ValidatedField type="select" name="langKey" label={translate('userManagement.langKey')}>
-                {locales.map(locale => (
-                  <option value={locale} key={locale}>
-                    {languages[locale].name}
-                  </option>
-                ))}
-              </ValidatedField>
-              <ValidatedField type="select" name="authorities" multiple label={translate('userManagement.profiles')}>
-                {authorities.map(role => (
-                  <option value={role} key={role}>
-                    {role}
-                  </option>
-                ))}
-              </ValidatedField>
               <Button tag={Link} to="/admin/user-management" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;

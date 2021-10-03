@@ -35,7 +35,7 @@ class UserMapperTest {
         user.setEmail("johndoe@localhost");
         user.setFirstName("john");
         user.setLastName("doe");
-        user.setImageUrl("image_url");
+        user.setCedula("1717171717");
         user.setLangKey("en");
 
         userDto = new AdminUserDTO(user);

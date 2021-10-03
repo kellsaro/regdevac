@@ -7,7 +7,15 @@
       "lastname": "Apellidos",
       "lastname.placeholder": "Sus apellidos",
       "language": "Idioma",
-      "button": "Guardar"
+      "button": "Guardar",
+      "cedula": "Cédula",
+      "cedula.placeholder": "Su cédula",
+      "fechaDeNacimiento": "Fecha de nacimiento",
+      "fechaDeNacimiento.placeholder": "Su fecha de nacimiento",
+      "direccion": "Dirección",
+      "direccion.placeholder": "Su dirección domiciliaria",
+      "celular": "Celular",
+      "celular.placeholder": "Su número de celular"
     },
     "messages": {
       "error": {
